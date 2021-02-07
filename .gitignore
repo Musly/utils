@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+.DS_Store
+*.swp
+build/
+coverage/
+yarn-error.log
+.cache-loader
+.vscode
