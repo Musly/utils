@@ -202,7 +202,6 @@ module.exports = {
       clientsClaim: true,
       skipWaiting: true,
       exclude: [/\.map$/, /index.html/],
-      importWorkboxFrom: 'cdn',
     }),
   ].filter(Boolean),
 
