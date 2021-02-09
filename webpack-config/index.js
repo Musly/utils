@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 
 const ENV = process.env.NODE_ENV || 'development';
@@ -179,6 +180,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: IS_DEV ? 'style.css' : 'style.[hash].css',
       chunkFilename: IS_DEV ? '[id].css' : '[id].[chunkhash].css',
+    }),
+    IS_DEV && new ReactRefreshWebpackPlugin({
+      exclude: [/node_modules/],
     }),
     IS_DEV && new CircularDependencyPlugin({
       exclude: /node_modules/,
