@@ -15,7 +15,6 @@ const IS_TEST = ENV === 'test';
 module.exports = {
   mode: ENV,
   target: ['web', 'es5'],
-  watch: IS_DEV,
 
   entry: {
     app: './src/index.jsx',
