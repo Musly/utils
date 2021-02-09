@@ -194,14 +194,21 @@ module.exports = {
     }),
     IS_PROD && new CompressionWebpackPlugin({
       filename: '[path][base].gz[query]',
-      algorithm: 'gzip',
+      algorithm: 'brotliCompress',
       test: /\.js$|\.svg$|\.css$|\.gif$/,
+      compressionOptions: {
+        // zlib’s `level` option matches Brotli’s `BROTLI_PARAM_QUALITY` option.
+        level: 11,
+      },
+      threshold: 10240,
       minRatio: 0.8,
+      deleteOriginalAssets: false,
     }),
     IS_PROD && new GenerateSW({
+      swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,
-      exclude: [/\.map$/, /index.html/],
+      exclude: [/index.html/],
     }),
   ].filter(Boolean),
 
