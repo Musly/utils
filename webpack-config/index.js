@@ -17,10 +17,12 @@ module.exports = {
   target: ['web', 'es5'],
   watch: IS_DEV,
 
-  entry: './src/index.jsx',
+  entry: {
+    app: './src/index.jsx',
+  },
 
   output: {
-    filename: IS_DEV ? 'app.js' : 'app.[contenthash].js',
+    filename: IS_DEV ? '[name].js' : '[name].[contenthash].js',
     chunkFilename: IS_DEV ? '[name].js' : '[name].[contenthash].js',
     publicPath: '/',
     path: path.resolve(process.cwd(), 'build'),
