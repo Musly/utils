@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 const webpack = require('webpack');
 
 const ENV = process.env.NODE_ENV || 'development';
@@ -189,6 +191,18 @@ module.exports = {
       onDetected ({ paths, compilation }) {
         compilation.errors.push(new Error(paths.join(' -> ')));
       },
+    }),
+    IS_PROD && new CompressionWebpackPlugin({
+      filename: '[path][base].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.svg$|\.css$|\.gif$/,
+      minRatio: 0.8,
+    }),
+    IS_PROD && new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      exclude: [/\.map$/, /index.html/],
+      importWorkboxFrom: 'cdn',
     }),
   ].filter(Boolean),
 
