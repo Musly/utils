@@ -192,12 +192,13 @@ module.exports = {
   devtool: process.env.SOURCE_MAP || 'source-map',
 
   devServer: {
-    publicPath: '/',
     historyApiFallback: true,
-    contentBase: path.resolve(process.cwd(), 'build'),
-    hot: true,
+    static: path.resolve(process.cwd(), 'build'),
     host: process.env.HOST || '0.0.0.0',
     port: process.env.PORT || 80,
+    dev: {
+      publicPath: '/',
+    },
   },
 
   performance: {
