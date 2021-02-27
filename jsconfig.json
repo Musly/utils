@@ -1,0 +1,13 @@
+{
+  "typeAcquisition": {
+    "include": [
+      "jest"
+    ]
+  },
+  "target": [
+    "node",
+    "es6",
+    "browser"
+  ],
+  "module": "es6"
+}

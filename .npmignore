@@ -1,3 +1,5 @@
+.github/
 babel.config.js
 .eslintrc.js
 Makefile
+jsconfig.json
