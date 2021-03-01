@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    <img src="https://github.com/Musly/musly-ui/blob/master/public/assets/logo-dark.svg?raw=true" width="200" alt="Musly" />
+    <img src="https://github.com/Musly/musly-ui/blob/main/public/assets/logo-dark.svg?raw=true" width="200" alt="Musly" />
   </h1>
 </div>
 
