@@ -36,7 +36,7 @@
     "promise": "^8.1.0",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
-    "whatwg-fetch": "^3.5.0",
+    "whatwg-fetch": "^3.6.2",
     "workbox-webpack-plugin": "^6.1.1"
   },
   "devDependencies": {
