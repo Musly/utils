@@ -151,9 +151,10 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(ENV),
-    }),
+    new webpack.DefinePlugin(process.env.reduce((acc, key) => ({
+      ...acc,
+      [`process.env.${key}`]: JSON.stringify(process.env[key]),
+    }), {})),
     new CopyWebpackPlugin({
       patterns: [
         {
